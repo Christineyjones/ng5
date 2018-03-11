@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { trigger, style, transition, animate, keyframes, query, stagger } from '@angular/animations';
 import { DataService } from '../data.service';
+import { build$ } from 'protractor/built/element';
 
 @Component({
   selector: 'app-home',
@@ -50,6 +51,7 @@ export class HomeComponent implements OnInit {
 
   removeItem(i) {
     this.goals.splice(i, 1);
+    this.itemCount = this.goals.length;
     this._data.changeGoal(this.goals);
   }
 
